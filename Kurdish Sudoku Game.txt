@@ -1,0 +1,129 @@
+Kurdish Sudoku Game - Enhanced Complete Version
+
+Core Features:
+
+Multiple Grid Sizes
+: 6×6 and 9×9 Sudoku puzzles with proper box validation
+Three Difficulty Levels
+: Easy, Medium, Hard with adaptive cell removal
+Splash Screen
+: Animated loading screen with progress bar before welcome page
+Multi-language Support
+: English, Kurdish (Sorani), Arabic with RTL text support
+Complete Sound System
+: Sound effects for success, errors, coins, hints, and unlocks with toggle control (no cell touch sounds)
+Persistent Data
+: Coins, hints, themes, language, sound settings, and grid size preferences saved across sessions
+Advanced Cheat System:
+
+Title Tap Cheat
+: Tap game title 7 times within 2 seconds for mega rewards
+Keyboard Cheats
+:
+Type "COINS" during gameplay for +100 coins
+Type "HINTS" during gameplay for +5 hints
+Type "THEMES" to unlock all premium themes instantly
+Epic Visual Effects
+: Screen shake, fireworks, coin rain animations with cheat activation
+Mega Cheat Rewards
+: +2000 coins, +20 hints, all themes unlocked, VIP status activated
+VIP Status Banner
+: Golden animated banner appears at top when cheats are activated
+Premium Shop System:
+
+Hint Purchases
+: Buy additional hints for 10 coins each
+Premium Themes
+: Ocean (50), Forest (50), Sunset (75), Purple (100), Galaxy (200 coins)
+Galaxy Theme
+: Special animated starfield background with moving gradients and twinkling stars
+Theme Ownership
+: Visual indicators for owned vs purchasable themes
+Persistent Purchases
+: All purchases saved and maintained across sessions
+VIP Theme System:
+
+Exclusive VIP Theme
+: Golden animated theme with crown and diamond effects
+VIP-Only Access
+: Unlocked only through cheat activation, cannot be purchased
+Animated Background
+: Golden gradient with floating crown and diamond animations
+VIP Status Required
+: Theme disabled until VIP status is achieved through cheats
+Complete Settings Panel:
+
+Language Selection
+: Full interface translation with RTL support
+Grid Size Options
+: Switch between 6×6 and 9×9 grids with instant regeneration
+Sound Toggle
+: Enable/disable sound effects with visual slider (no cell touch sounds)
+Theme Selection
+: Access to all owned themes plus VIP theme when unlocked
+About Section
+: Simple about page with developer credit (Didar)
+Reset Function
+: Complete game data reset including VIP status with confirmation dialog
+Enhanced Gameplay:
+
+Smart Grid Generation
+: Proper 6×6 (2×3 boxes) and 9×9 (3×3 boxes) Sudoku validation
+No Mobile Keyboard Issues
+: Uses div elements instead of inputs to prevent keyboard popup
+Responsive Design
+: Optimized cell sizes and layouts for mobile and desktop
+Complete Theme Integration
+: All UI elements properly themed including number pad
+Error Handling
+: Visual feedback for invalid moves with fail counter (max 3)
+Hint System
+: Smart hint placement with visual highlighting and coin cost
+Visual & Audio Experience:
+
+Premium Animations
+: Smooth transitions, pulse effects, hover states
+Selective Sound Generation
+: Web Audio API sounds for game actions (no cell touch sounds)
+Galaxy Theme
+: Animated background with 100 twinkling stars and moving gradients
+VIP Theme
+: Golden animated background with floating crowns and diamonds
+Victory Celebrations
+: Animated modals with game statistics and coin rewards
+Status Messages
+: Real-time feedback for all user actions with auto-hide
+Technical Excellence:
+
+Mobile Optimized
+: Touch-friendly controls, proper sizing, no input focus issues
+Cross-browser Compatible
+: Works on all modern browsers with fallbacks
+Performance Optimized
+: Efficient DOM manipulation and event handling
+Data Persistence
+: Robust localStorage implementation with unique keys including VIP status
+Error Prevention
+: Input validation, boundary checking, state management
+Accessibility
+: Keyboard navigation, focus management, screen reader friendly
+Game Modes & Difficulty:
+
+6×6 Sudoku
+: Uses numbers 1-6 with 2×3 box validation, perfect for beginners
+9×9 Sudoku
+: Classic format with 3×3 box validation, traditional experience
+Adaptive Difficulty
+: Cell removal scales with grid size and difficulty level
+Coin Rewards
+: Difficulty-based rewards (Easy: 15, Medium: 25, Hard: 40 coins)
+Progress Tracking
+: Timer, hints used, fails counter, completion statistics
+Developer Information:
+
+Created by
+: Didar
+Version
+: 2.0
+Clean About Section
+: Simple developer credit without feature lists or cheat information
