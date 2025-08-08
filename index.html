@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Kurdish Sudoku</title>
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -11,7 +11,14 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
-        body { font-family: 'Inter', sans-serif; }
+        body { 
+            font-family: 'Inter', sans-serif; 
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            -webkit-touch-callout: none;
+        }
         
         .sudoku-cell {
             transition: all 0.2s ease;
@@ -199,6 +206,11 @@
             0% { background-position: 0% 50%; }
             50% { background-position: 100% 50%; }
             100% { background-position: 0% 50%; }
+        }
+        
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
         }
         
         .pulse-ring {
@@ -707,9 +719,14 @@
                     <p class="text-gray-600 mb-4" data-translate="developer">The game developed by Didar</p>
                 </div>
                 
-                <button id="closeAboutBtn" class="w-full bg-blue-600 hover:bg-blue-700 text-white px-4 py-3 rounded-lg font-medium mt-6" data-translate="close">
-                    Close
-                </button>
+                <div class="flex gap-3 mt-6">
+                    <button id="moreGamesBtn" class="flex-1 bg-green-600 hover:bg-green-700 text-white px-4 py-3 rounded-lg font-medium" data-translate="moreGames">
+                        More Games
+                    </button>
+                    <button id="closeAboutBtn" class="flex-1 bg-blue-600 hover:bg-blue-700 text-white px-4 py-3 rounded-lg font-medium" data-translate="close">
+                        Close
+                    </button>
+                </div>
             </div>
         </div>
     </div>
@@ -744,12 +761,12 @@
     <div id="cheatModal" class="fixed inset-0 bg-black bg-opacity-80 z-50 hidden flex items-center justify-center p-4">
         <div class="bg-gradient-to-br from-yellow-400 via-pink-500 to-purple-600 rounded-xl shadow-2xl max-w-lg w-full border-4 border-yellow-300">
             <div class="p-8 text-center">
-                <div class="text-8xl mb-4 animate-spin">🌟</div>
+                <div class="text-8xl mb-4" style="animation: spin 2s linear infinite;">🌟</div>
                 <h2 class="text-3xl font-bold text-white mb-2 rainbow-text" data-translate="megaCheat">MEGA CHEAT ACTIVATED!</h2>
                 <p class="text-white mb-4 text-lg" data-translate="ultimateSecret">🎊 You've discovered the ultimate secret! 🎊</p>
                 <div class="bg-white bg-opacity-20 rounded-lg p-6 mb-4">
                     <div class="text-white font-bold text-lg space-y-2">
-                        <div class="animate-bounce">💰 <span data-translate="plus2000coins">+2000 Coins</span></div>
+                        <div class="animate-bounce">💰 <span data-translate="plus99999coins">+99999 Coins</span></div>
                         <div class="animate-bounce" style="animation-delay: 0.2s;">💡 <span data-translate="plus20hints">+20 Hints</span></div>
                         <div class="animate-bounce" style="animation-delay: 0.4s;">🌈 <span data-translate="allThemesUnlocked">All Themes Unlocked</span></div>
                         <div class="animate-bounce" style="animation-delay: 0.6s;">✨ <span data-translate="vipStatus">VIP Status Activated</span></div>
@@ -808,7 +825,7 @@
                 hints: "Hints",
                 coins: "Coins",
                 fails: "Fails",
-                hintCost: "Hint (10 coins)",
+                hintCost: "Hint",
                 erase: "Erase",
                 hintsCost: "Cost: 10 coins each",
                 available: "Available",
@@ -844,7 +861,7 @@
                 about: "About",
                 reset: "Reset Game",
                 superReset: "RESET",
-                version: "Version 2.0",
+                version: "Version 1.2.6",
                 developer: "The game developed by Didar",
                 congratulations: "Congratulations!",
                 puzzleSolved: "You solved the puzzle!",
@@ -854,7 +871,7 @@
                 close: "Close",
                 megaCheat: "MEGA CHEAT ACTIVATED!",
                 ultimateSecret: "🎊 You've discovered the ultimate secret! 🎊",
-                plus2000coins: "+2000 Coins",
+                plus99999coins: "+99999 Coins",
                 plus20hints: "+20 Hints",
                 allThemesUnlocked: "All Themes Unlocked",
                 vipStatus: "VIP Status Activated",
@@ -866,7 +883,8 @@
                 allHintsLost: "All Hints Will Be Lost",
                 vipStatusLost: "VIP Status Will Be Lost",
                 cancel: "Cancel",
-                confirmReset: "YES, RESET ALL!"
+                confirmReset: "YES, RESET ALL!",
+                moreGames: "More Games"
             },
             ku: {
                 subtitle: "مێشکت بە یاریی کلاسیکی پازڵ تاقی بکەرەوە",
@@ -884,7 +902,7 @@
                 hints: "ئامۆژگاری",
                 coins: "دراو",
                 fails: "هەڵە",
-                hintCost: "ئامۆژگاری (١٠ دراو)",
+                hintCost: "ئامۆژگاری",
                 erase: "سڕینەوە",
                 hintsCost: "نرخ: ١٠ دراو بۆ هەر یەکێک",
                 available: "بەردەست",
@@ -919,7 +937,7 @@
                 vip: "VIP",
                 about: "دەربارە",
                 reset: "ڕیسێتی یاری",
-                superReset: "سڕینەوەی زانیاری",
+                superReset: "ڕیسێتی بەهێز",
                 version: "وەشانی ٢.٠",
                 developer: "یارییەکە لەلایەن دیدارەوە دروست کراوە",
                 congratulations: "پیرۆزبایی!",
@@ -930,7 +948,7 @@
                 close: "داخستن",
                 megaCheat: "فێڵی گەورە چالاک کرا!",
                 ultimateSecret: "🎊 نهێنی سەرەکیت دۆزییەوە! 🎊",
-                plus2000coins: "+٢٠٠٠ دراو",
+                plus99999coins: "+٩٩٩٩٩ دراو",
                 plus20hints: "+٢٠ ئامۆژگاری",
                 allThemesUnlocked: "هەموو ڕووکارەکان کرانەوە",
                 vipStatus: "پلەی VIP چالاک کرا",
@@ -942,7 +960,8 @@
                 allHintsLost: "هەموو ئامۆژگاریەکان لە دەست دەدرێن",
                 vipStatusLost: "پلەی VIP لە دەست دەدرێت",
                 cancel: "هەڵوەشاندنەوە",
-                confirmReset: "بەڵێ، هەموو شت بسڕەوە!"
+                confirmReset: "بەڵێ، هەموو شت بسڕەوە!",
+                moreGames: "یاریی زیاتر"
             },
             ar: {
                 subtitle: "تحدى عقلك مع لعبة الألغاز الكلاسيكية",
@@ -960,7 +979,7 @@
                 hints: "التلميحات",
                 coins: "العملات",
                 fails: "الأخطاء",
-                hintCost: "تلميح (10 عملات)",
+                hintCost: "تلميح",
                 erase: "مسح",
                 hintsCost: "التكلفة: 10 عملات لكل واحد",
                 available: "متاح",
@@ -995,7 +1014,7 @@
                 vip: "VIP",
                 about: "حول",
                 reset: "إعادة تعيين اللعبة",
-                superReset: "إعادة تعيين",
+                superReset: "إعادة تعيين قوية",
                 version: "الإصدار 2.0",
                 developer: "تم تطوير اللعبة من قبل ديدار",
                 congratulations: "تهانينا!",
@@ -1006,7 +1025,7 @@
                 close: "إغلاق",
                 megaCheat: "تم تفعيل الغش الضخم!",
                 ultimateSecret: "🎊 لقد اكتشفت السر النهائي! 🎊",
-                plus2000coins: "+2000 عملة",
+                plus99999coins: "+99999 عملة",
                 plus20hints: "+20 تلميح",
                 allThemesUnlocked: "تم فتح جميع الثيمات",
                 vipStatus: "تم تفعيل حالة VIP",
@@ -1018,7 +1037,8 @@
                 allHintsLost: "ستفقد جميع التلميحات",
                 vipStatusLost: "ستفقد حالة VIP",
                 cancel: "إلغاء",
-                confirmReset: "نعم، احذف كل شيء!"
+                confirmReset: "نعم، احذف كل شيء!",
+                moreGames: "المزيد من الألعاب"
             }
         };
 
@@ -1045,6 +1065,8 @@
                 this.titleTapCount = 0;
                 this.titleTapTimer = null;
                 this.cheatBuffer = '';
+                this.backgroundMusic = null;
+                this.musicInterval = null;
                 
                 this.difficulties = {
                     easy: { cellsToRemove: 35, coinReward: 15 },
@@ -1083,7 +1105,7 @@
                             this.createGrid();
                             this.createNumberPad();
                             this.generateNewGame();
-                        }, 500);
+                        }, 2000);
                     }
                 }, 100);
             }
@@ -1211,6 +1233,7 @@
                 document.getElementById('closeCheatModal').addEventListener('click', () => this.closeCheatModal());
                 document.getElementById('closeAbout').addEventListener('click', () => this.closeAbout());
                 document.getElementById('closeAboutBtn').addEventListener('click', () => this.closeAbout());
+                document.getElementById('moreGamesBtn').addEventListener('click', () => this.openMoreGames());
                 document.getElementById('cancelSuperReset').addEventListener('click', () => this.closeSuperResetModal());
                 document.getElementById('confirmSuperReset').addEventListener('click', () => this.executeSuperReset());
                 
@@ -1299,7 +1322,7 @@
             
             activateCheat() {
                 // Add massive rewards
-                this.coins += 2000;
+                this.coins += 99999;
                 this.hintsAvailable += 20;
                 this.ownedThemes = ['light', 'dark', 'ocean', 'forest', 'sunset', 'purple', 'galaxy', 'vip'];
                 this.vipStatus = true;
@@ -1505,8 +1528,10 @@
             
             removeCells() {
                 const totalCells = this.gridSize * this.gridSize;
-                const baseRemoval = this.gridSize === 6 ? 20 : 35;
-                const difficultyMultiplier = { easy: 1, medium: 1.3, hard: 1.6 };
+                const baseRemoval = this.gridSize === 6 ? 12 : 35;
+                const difficultyMultiplier = this.gridSize === 6 ? 
+                    { easy: 1, medium: 1.2, hard: 1.4 } : 
+                    { easy: 1, medium: 1.3, hard: 1.6 };
                 const cellsToRemove = Math.floor(baseRemoval * difficultyMultiplier[this.currentDifficulty]);
                 
                 const positions = [];
@@ -1945,6 +1970,83 @@
                 document.getElementById('aboutModal').classList.add('hidden');
             }
             
+            openMoreGames() {
+                window.open('https://github.com/Didar122', '_blank');
+            }
+            
+            startBackgroundMusic(type) {
+                if (!this.soundEnabled) return;
+                
+                this.stopBackgroundMusic();
+                
+                if (type === 'vip' || type === 'galaxy') {
+                    this.playBackgroundMusic(type);
+                }
+            }
+            
+            stopBackgroundMusic() {
+                if (this.musicInterval) {
+                    clearInterval(this.musicInterval);
+                    this.musicInterval = null;
+                }
+                if (this.backgroundMusic) {
+                    this.backgroundMusic = null;
+                }
+            }
+            
+            playBackgroundMusic(type) {
+                const playNote = (frequency, duration, delay = 0) => {
+                    setTimeout(() => {
+                        if (!this.soundEnabled) return;
+                        
+                        const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+                        const oscillator = audioContext.createOscillator();
+                        const gainNode = audioContext.createGain();
+                        
+                        oscillator.connect(gainNode);
+                        gainNode.connect(audioContext.destination);
+                        
+                        oscillator.frequency.setValueAtTime(frequency, audioContext.currentTime);
+                        oscillator.type = 'sine';
+                        gainNode.gain.setValueAtTime(0.02, audioContext.currentTime); // Very quiet
+                        gainNode.gain.exponentialRampToValueAtTime(0.001, audioContext.currentTime + duration);
+                        
+                        oscillator.start();
+                        oscillator.stop(audioContext.currentTime + duration);
+                    }, delay);
+                };
+                
+                if (type === 'vip') {
+                    // Calm, royal melody
+                    const vipMelody = [523, 659, 784, 659, 523, 392, 523]; // C, E, G, E, C, G, C
+                    let noteIndex = 0;
+                    
+                    this.musicInterval = setInterval(() => {
+                        if (this.currentTheme === 'vip' && this.soundEnabled) {
+                            playNote(vipMelody[noteIndex], 1.5);
+                            noteIndex = (noteIndex + 1) % vipMelody.length;
+                        }
+                    }, 2000);
+                    
+                } else if (type === 'galaxy') {
+                    // Ambient space-like tones
+                    const galaxyTones = [220, 246, 277, 311, 330]; // Low, ambient frequencies
+                    
+                    this.musicInterval = setInterval(() => {
+                        if (this.currentTheme === 'galaxy' && this.soundEnabled) {
+                            const randomTone = galaxyTones[Math.floor(Math.random() * galaxyTones.length)];
+                            playNote(randomTone, 3);
+                            
+                            // Add a second harmonic tone
+                            setTimeout(() => {
+                                const harmonic = galaxyTones[Math.floor(Math.random() * galaxyTones.length)];
+                                playNote(harmonic * 1.5, 2);
+                            }, 1000);
+                        }
+                    }, 4000);
+                }
+            }
+            
             startTimer() {
                 this.startTime = Date.now();
                 this.timerInterval = setInterval(() => {
@@ -2083,6 +2185,9 @@
                 
                 // Apply new theme
                 document.body.classList.add(`theme-${this.currentTheme}`);
+                
+                // Start background music for special themes
+                this.startBackgroundMusic(this.currentTheme);
                 
                 // Update card backgrounds
                 document.querySelectorAll('.card-light, .card-dark, .card-ocean, .card-forest, .card-sunset, .card-purple, .card-galaxy, .card-vip').forEach(card => {
@@ -2235,5 +2340,5 @@
             new KurdishSudoku();
         });
     </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'96b6cd192335f76a',t:'MTc1NDU2OTk5My4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'96bffc8706bcf76e',t:'MTc1NDY2NjMwNy4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
